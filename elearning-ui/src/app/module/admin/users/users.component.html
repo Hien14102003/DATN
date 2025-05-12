@@ -1,0 +1,73 @@
+<div class="sb2-2-3">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box-inn-sp">
+        <div class="inn-title">
+          <h4>Student Details</h4>
+        </div>
+        <div class="tab-inn d-flex justify-content-start">
+          <strong class="align-content-center">Search:</strong>
+          <input type="text" class="form-control w-50 ms-3 fs-4 text-dark" placeholder="Search by name, email"
+                 [(ngModel)]="key" (keyup.enter)="search()" (keyup)="search()">
+        </div>
+        <div class="tab-inn">
+          <div class="table-responsive table-desi">
+            <table class="table table-hover">
+              <thead>
+              <tr>
+                <th>User</th>
+                <th>Email / Address</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Phone</th>
+                <th>Date of birth</th>
+                <th>Status</th>
+                <th>View</th>
+              </tr>
+              </thead>
+              <tbody>
+                @for (s of students.contents; track s) {
+                  <tr>
+                    <td><span class="list-img"><img [src]="s.avatar" alt=""></span>
+                    </td>
+                    <td>
+                      <a href="javascript:void(0)">
+                        <span class="list-enq-name">{{ s.email }}</span>
+                        <span class="list-enq-city">{{ s.address }}</span>
+                      </a>
+                    </td>
+                    <td>{{ s.lastName }} {{ s.firstName }}</td>
+                    <td>{{ s.gender }}</td>
+                    <td>{{ s.phone }}</td>
+                    <td>{{ s.dob }}</td>
+                    <td>
+                      @if (s.status?.toLowerCase() === 'active') {
+                        <span class="label label-table label-success">Active</span>
+                      } @else if (s.status?.toLowerCase() === 'block') {
+                        <span class="label label-table label-danger">Block</span>
+                      } @else {
+                        <span class="label label-table label-warning">Inactive</span>
+                      }
+                    </td>
+                    <td>
+                      <a href="javascript:void(0)" class="ad-st-view" (click)="changeStatus(s, 'block')">Block</a> |
+                      <a href="javascript:void(0)" class="ad-st-view bg-success" (click)="changeStatus(s, 'unblock')">Unblock</a>
+                    </td>
+                  </tr>
+                } @empty {
+                  <tr>
+                    <td colspan="8" class="text-center">No records found.</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+          <div class="d-flex justify-content-center">
+            <pagination [totalItems]="students.totalRecords" [(ngModel)]="students.page"
+                        [itemsPerPage]="students.size" (pageChanged)="pageChanged($event)"></pagination>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

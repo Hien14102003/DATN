@@ -1,0 +1,123 @@
+<div class="col-md-9">
+  <div class="udb">
+    <div class="udb-sec udb-cour-stat">
+      <h4 class="text-warning fw-bold"><img ngSrc="assets/images/icon/db3.png" alt="" height="24" width="24"/> Pending
+        Course</h4>
+      <div class="pro-con-table">
+        <table class="table table-bordered bordered responsive-table">
+          <thead>
+          <tr>
+            <th>No</th>
+            <th>Image</th>
+            <th>Course Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Course status</th>
+            <th>Enroll Status</th>
+          </tr>
+          </thead>
+
+          <tbody>
+            @for (c of dataPending; track c; let idx = $index) {
+              <tr>
+                <td>{{ idx + 1 }}</td>
+                <td>
+                  <img [src]="c.thumbnail" alt="" style="height: 45px; width: 45px;"/>
+                </td>
+                <td>{{ c.courseName }}</td>
+                <td>{{ c.startDate | date : 'yyyy-MM-dd' }}</td>
+                <td>{{ c.endDate | date : 'yyyy-MM-dd' }}</td>
+                <td><span class="pro-user-act {{c.courseStatus}}">{{ c.courseStatus }}</span></td>
+                <td><span class="pro-user-act {{c.enrollmentStatus}}">{{ c.enrollmentStatus }}</span></td>
+              </tr>
+            } @empty {
+              <tr>
+                <td colspan="99" class="text-center">No pending course</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="udb-sec udb-cour-stat">
+      <h4 class="text-success fw-bold"><img ngSrc="assets/images/icon/db3.png" alt="" height="24" width="24"/> Approval
+        Course</h4>
+      <div class="pro-con-table">
+        <table class="table table-bordered bordered responsive-table">
+          <thead>
+          <tr>
+            <th>No</th>
+            <th>Image</th>
+            <th>Course Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Course status</th>
+            <th>Enroll Status</th>
+          </tr>
+          </thead>
+
+          <tbody>
+            @for (c of dataApproved; track c; let idx = $index) {
+              <tr>
+                <td>{{ idx + 1 }}</td>
+                <td>
+                  <img [src]="c.thumbnail" alt="" style="height: 45px; width: 45px;"/>
+                </td>
+                <td>{{ c.courseName }}</td>
+                <td>{{ c.startDate | date : 'yyyy-MM-dd' }}</td>
+                <td>{{ c.endDate | date : 'yyyy-MM-dd' }}</td>
+                <td><span class="pro-user-act {{c.courseStatus}}">{{ c.courseStatus }}</span></td>
+                <td><span class="pro-user-act {{c.enrollmentStatus}}">{{ c.enrollmentStatus }}</span></td>
+              </tr>
+            } @empty {
+              <tr>
+                <td colspan="99" class="text-center">No approval course</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="udb-sec udb-cour-stat">
+      <h4 class="text-danger fw-bold"><img ngSrc="assets/images/icon/db3.png" alt="" height="24" width="24"/> Rejected
+        Course</h4>
+      <div class="pro-con-table">
+        <table class="table table-bordered bordered responsive-table">
+          <thead>
+          <tr>
+            <th>No</th>
+            <th>Image</th>
+            <th>Course Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Course status</th>
+            <th>Enroll Status</th>
+          </tr>
+          </thead>
+
+          <tbody>
+            @for (c of dataRejected; track c; let idx = $index) {
+              <tr>
+                <td>{{ idx + 1 }}</td>
+                <td>
+                  <img [src]="c.thumbnail" alt="" style="height: 45px; width: 45px;"/>
+                </td>
+                <td>{{ c.courseName }}</td>
+                <td>{{ c.startDate | date : 'yyyy-MM-dd' }}</td>
+                <td>{{ c.endDate | date : 'yyyy-MM-dd' }}</td>
+                <td><span class="pro-user-act {{c.courseStatus}}">{{ c.courseStatus }}</span></td>
+                <td><span class="pro-user-act {{c.enrollmentStatus}}">{{ c.enrollmentStatus }}</span></td>
+              </tr>
+            } @empty {
+              <tr>
+                <td colspan="99" class="text-center">No approval course</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

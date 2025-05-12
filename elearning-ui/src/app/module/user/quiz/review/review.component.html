@@ -1,0 +1,54 @@
+<section>
+  <div class="container com-sp pad-bot-70 pg-inn">
+    <div class="row">
+      <h2 class="text-center">Result of exam: {{ data.title }}</h2>
+      <div class="cor">
+        <div class="col-md-12">
+          @for (q of data.questions; track q; let idx = $index) {
+            <div class="card c-question">
+              <div class="card-header">
+                <p>{{ q.no }}. {{ q.content }}</p>
+              </div>
+              <div class="card-body">
+                <div class="form-check">
+                  <input type="radio" id="optionA{{idx}}" name="answer{{idx}}" disabled [ngModel]="q.userAnswer"
+                         value="a"
+                         class="form-check-input">
+                  <label class="form-check-label fw-bold text-dark" for="optionA{{idx}}">A. {{ q.optionA }}</label>
+                </div>
+
+                <div class="form-check">
+                  <input type="radio" id="optionB{{idx}}" name="answer{{idx}}" disabled [ngModel]="q.userAnswer"
+                         value="b"
+                         class="form-check-input">
+                  <label class="form-check-label fw-bold text-dark" for="optionB{{idx}}">B. {{ q.optionB }}</label>
+                </div>
+
+                <div class="form-check">
+                  <input type="radio" id="optionC{{idx}}" name="answer{{idx}}" disabled [ngModel]="q.userAnswer"
+                         value="c"
+                         class="form-check-input">
+                  <label class="form-check-label fw-bold text-dark" for="optionC{{idx}}">C. {{ q.optionC }}</label>
+                </div>
+
+                <div class="form-check">
+                  <input type="radio" id="optionD{{idx}}" name="answer{{idx}}" disabled [ngModel]="q.userAnswer"
+                         value="d"
+                         class="form-check-input">
+                  <label class="form-check-label fw-bold text-dark" for="optionD{{idx}}">D. {{ q.optionD }}</label>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="row flex-column">
+                  <div class="col-md-6">
+                    <p class="text-success fw-bold">Correct answer: {{ q.answer }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

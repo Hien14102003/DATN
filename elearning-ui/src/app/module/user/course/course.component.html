@@ -1,0 +1,58 @@
+<section class="pop-cour">
+  <div class="container com-sp pad-bot-70">
+    <div class="row">
+      <div class="con-title">
+        <h2>All <span>Courses</span></h2>
+      </div>
+    </div>
+    <div class="row">
+      @for (c of data.contents; track c) {
+        <div class="col-md-6">
+          <div>
+            <!--POPULAR COURSES-->
+            <div class="home-top-cour">
+              <!--POPULAR COURSES IMAGE-->
+              <div class="col-md-3">
+                <img [src]="c.thumbnail" alt="" style="width: 120px; height: 120px;">
+              </div>
+              <!--POPULAR COURSES: CONTENT-->
+              <div class="col-md-9 home-top-cour-desc">
+                <a href="javascript:void(0)">
+                  <h3>{{ c.name }}</h3>
+                </a>
+                <h4>
+                  {{ c.level.name }}
+                </h4>
+                <p>
+                  {{ c.description }}
+                </p> <span class="home-top-cour-rat">5.0</span>
+                <div class="hom-list-share">
+                  <ul>
+                    <li>
+                      <a href="javascript:void(0)" (click)="detail(c.courseId)">
+                        <i class="fa fa-bar-chart"
+                           aria-hidden="true"></i> Detail
+                      </a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">
+                        <i class="fa fa-eye"
+                           aria-hidden="true"></i>{{ c.numberOfStudents }} Student
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+      <div class="pg-pagina d-flex justify-content-center">
+        <pagination [totalItems]="data.totalRecords" [(ngModel)]="data.page" [itemsPerPage]="data.size"
+                    [maxSize]="5"
+                    [boundaryLinks]="true" [directionLinks]="true" (pageChanged)="pageChanged($event)">
+        </pagination>
+      </div>
+    </div>
+  </div>
+</section>

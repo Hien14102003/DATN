@@ -1,0 +1,34 @@
+<div class="log-in-pop">
+  <div class="log-in-pop-left">
+    <h1>Hello...</h1>
+    <p>Don't have an account? Create your account. It's take less then a minutes</p>
+    <h4>Login with social media</h4>
+    <ul>
+      <li (click)="comingSoon()"><a href="javascript:void(0)">
+        <i class="fa fa-facebook"></i> Facebook</a>
+      </li>
+      <li (click)="loginWithSocial('google')"><a href="javascript:void(0)">
+        <i class="fa fa-google"></i> Google+</a>
+      </li>
+      <li (click)="comingSoon()"><a href="javascript:void(0)">
+        <i class="fa fa-twitter"></i> Twitter</a>
+      </li>
+    </ul>
+  </div>
+  <div class="log-in-pop-right">
+    <a href="javascript:void(0)" class="pop-close" (click)="bsRef.hide()">
+      <img ngSrc="assets/images/cancel_24x24.png" alt="" height="24" width="24"/>
+    </a>
+    @switch (action()) {
+      @case ('login') {
+        <app-login-modal/>
+      }
+      @case ('register') {
+        <app-register-modal/>
+      }
+      @case ('forget') {
+        <app-forget-modal/>
+      }
+    }
+  </div>
+</div>

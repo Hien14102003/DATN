@@ -1,0 +1,120 @@
+<div class="col-md-9">
+  <div class="udb">
+    <div class="udb-sec udb-prof">
+      <h4><img ngSrc="assets/images/icon/db1.png" alt="" height="24" width="24"/> My Profile</h4>
+      <div class="sdb-tabl-com sdb-pro-table">
+        <table class="responsive-table bordered">
+          <tbody>
+          <tr>
+            <td>First name</td>
+            <td>:</td>
+            <td>
+              @if (editMode) {
+                <input type="text" name="firstName" class="validate" [(ngModel)]="userParam.firstName">
+              } @else {
+                {{ userService.profile.firstName }}
+              }
+            </td>
+          </tr>
+          <tr>
+            <td>Last name</td>
+            <td>:</td>
+            <td>
+              @if (editMode) {
+                <input type="text" name="lastName" class="validate" [(ngModel)]="userParam.lastName">
+              } @else {
+                {{ userService.profile.lastName }}
+              }
+            </td>
+          </tr>
+          <tr>
+            <td>Gender</td>
+            <td>:</td>
+            <td>
+              @if (editMode) {
+                <select name="gender" class="form-select m-0" [(ngModel)]="userParam.gender">
+                  <option>Select gender</option>
+                  <option value="MALE">Male</option>
+                  <option value="FEMALE">Female</option>
+                </select>
+              } @else {
+                {{ userService.profile.gender }}
+              }
+            </td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>:</td>
+            <td>
+              {{ userService.profile.email }}
+            </td>
+          </tr>
+          <tr>
+            <td>Phone</td>
+            <td>:</td>
+            <td>
+              @if (editMode) {
+                <input type="text" name="phone" class="validate" [(ngModel)]="userParam.phone">
+              } @else {
+                {{ userService.profile.phone }}
+              }
+            </td>
+          </tr>
+          <tr>
+            <td>Date of birth</td>
+            <td>:</td>
+            <td>
+              @if (editMode) {
+                <input type="text"
+                       name="dob"
+                       placeholder="Datepicker"
+                       [(ngModel)]="dob"
+                       class="form-control"
+                       bsDatepicker>
+              } @else {
+                {{ userService.profile.dob | date : 'EEEE, MMMM d, y' }}
+              }
+            </td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td>:</td>
+            <td>
+              @if (editMode) {
+                <input type="text" name="address" class="validate" [(ngModel)]="userParam.address">
+              } @else {
+                {{ userService.profile.address }}
+              }
+            </td>
+          </tr>
+          <tr>
+            <td>Last update</td>
+            <td>:</td>
+            <td>
+              {{ userService.profile.lastUpdate | date : 'EEEE, MMMM d, y, h:mm:ss a' }}
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="sdb-bot-edit">
+          @if (editMode) {
+            <a href="javascript:void(0)" class="waves-effect waves-light btn-large sdb-btn sdb-btn-edit"
+               (click)="update()">
+              <i class="fa fa-save"></i>
+              Save</a>
+            <a href="javascript:void(0)" class="waves-effect waves-light btn-large sdb-btn sdb-btn-edit ms-3 bg-danger"
+               (click)="editMode = !editMode">
+              <i class="fa fa-close"></i>
+              Cancel</a>
+
+          } @else {
+            <a href="javascript:void(0)" class="waves-effect waves-light btn-large sdb-btn sdb-btn-edit"
+               (click)="edit()">
+              <i class="fa fa-pencil"></i>
+              Edit my profile</a>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

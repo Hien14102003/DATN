@@ -1,0 +1,49 @@
+<section>
+  <div class="pro-cover">
+  </div>
+  <div class="pro-menu">
+    <div class="container">
+      <div class="col-md-9 col-md-offset-3">
+        <ul>
+          <li><a href="javascript:void(0)" [ngClass]="{'pro-act':mode() === 'info'}"
+                 (click)="mode.set('info')">Profile</a>
+          </li>
+          <li><a href="javascript:void(0)" [ngClass]="{'pro-act':mode() === 'course'}"
+                 (click)="mode.set('course')">Course</a></li>
+          <li><a href="javascript:void(0)" [ngClass]="{'pro-act':mode() === 'history'}"
+                 (click)="mode.set('history')">Result Quiz</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="stu-db">
+    <div class="container pg-inn">
+      <div class="col-md-3">
+        <div class="pro-user">
+          <img [src]="userService.profile.avatar" alt="user"
+               style="width: 253px; height: 253px; object-fit: contain;">
+        </div>
+        <div class="pro-user-bio">
+          <ul>
+            <li>
+              <input type="file" #avatarInput accept="image/*" class="d-none" (change)="changeAvatar($event)"/>
+              <a href="javascript:void(0)" class="btn btn-primary text-white" (click)="avatarInput.click()"><i
+                class="fa fa-image"></i> Change
+                avatar</a>
+            </li>
+            <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i> Facebook</a></li>
+            <li><a href="javascript:void(0)"><i class="fa fa-google-plus"></i> Google</a></li>
+            <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i> Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+      @if (mode() === 'info') {
+        <app-info/>
+      } @else if (mode() === 'course') {
+        <app-exam/>
+      } @else {
+        <app-history-quiz/>
+      }
+    </div>
+  </div>
+</section>

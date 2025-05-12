@@ -1,0 +1,74 @@
+<section class="pop-cour">
+  <div class="container com-sp pad-bot-70">
+    <div class="row">
+      <div class="con-title">
+        <h2>Popular <span>Courses</span></h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div>
+          @for (c of dataLeft; track c) {
+            <div class="home-top-cour">
+              <!--POPULAR COURSES IMAGE-->
+              <div class="col-md-3"><img [src]="c.thumbnail" style="height: 110px; width: 110px;" alt=""></div>
+              <!--POPULAR COURSES: CONTENT-->
+              <div class="col-md-9 home-top-cour-desc">
+                <a href="javascript:void(0)">
+                  <h3>{{ c.name }}</h3>
+                </a>
+                <h4>{{ c.level.name }}</h4>
+                <p>{{ c.description }}</p>
+                <span class="home-top-cour-rat">5.0</span>
+                <div class="hom-list-share">
+                  <ul>
+                    <li>
+                      <a href="javascript:void(0)" (click)="detail(c.courseId)">
+                        <i class="fa fa-bar-chart"
+                           aria-hidden="true"></i> Detail</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)"><i class="fa fa-eye" aria-hidden="true"></i>{{ c.numberOfStudents }}
+                        Students</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div>
+          @for (c of dataRight; track c) {
+            <div class="home-top-cour">
+              <!--POPULAR COURSES IMAGE-->
+              <div class="col-md-3"><img [src]="c.thumbnail" style="height: 110px; width: 110px;" alt=""></div>
+              <!--POPULAR COURSES: CONTENT-->
+              <div class="col-md-9 home-top-cour-desc">
+                <a href="javascript:void(0)">
+                  <h3>{{ c.name }}</h3>
+                </a>
+                <h4>{{ c.level.name }}</h4>
+                <p>{{ c.description }}</p>
+                <span class="home-top-cour-rat">5.0</span>
+                <div class="hom-list-share">
+                  <ul>
+                    <li>
+                      <a href="javascript:void(0)" (click)="detail(c.courseId)">
+                        <i class="fa fa-bar-chart" aria-hidden="true"></i> Detail</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)"><i class="fa fa-eye" aria-hidden="true"></i>{{ c.numberOfStudents }}
+                        Students</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+<div class="ed-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="ed-com-t1-left">
+          <ul>
+            <li><a href="javascript:void(0)">Đường Trịnh Văn Bô, Nam Từ Liêm, Hà Nội</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">Phone: 0243.555.2008/024.2236.5888
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                Email: tuyensinh&#64;eaut.edu.vn
+              </a>
+            </li>
+          </ul>
+        </div>
+        @if (!authService.isLoggedIn) {
+          <div class="ed-com-t1-right">
+            <ul>
+              <li><a href="javascript:void(0)" (click)="openModal('login')">Sign In</a>
+              </li>
+              <li><a href="javascript:void(0)" (click)="openModal('register')">Sign Up</a>
+              </li>
+            </ul>
+          </div>
+        } @else {
+          <div class="ed-com-t1-right">
+            <ul>
+              <li><a href="javascript:void(0)" (click)="logout()">Logout</a>
+              </li>
+            </ul>
+          </div>
+        }
+        <div class="ed-com-t1-social">
+          <ul>
+            <li><a href="javascript:void(0)"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            </li>
+            <li><a href="javascript:void(0)"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+            </li>
+            <li><a href="javascript:void(0)"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

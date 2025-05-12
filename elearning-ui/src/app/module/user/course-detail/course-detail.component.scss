@@ -1,0 +1,33 @@
+.pdf-icon {
+  background: url('/assets/images/pdf_icon_32x32.png') no-repeat left center;
+}
+
+.image-icon {
+  background: url('/assets/images/icon_image_32x32.png') no-repeat left center;
+}
+
+.student-icon {
+  background: url('/assets/images/student_32x32.png') no-repeat left center;
+}
+
+.quiz-icon {
+  background: url('/assets/images/quiz_32x32.png') no-repeat left center;
+}
+
+.wa1-expired {
+  background: linear-gradient(135deg, #aaa, #888); /* xám gradient */
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: not-allowed;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.wa1-expired i {
+  margin-right: 6px;
+}
+
+.wa1-expired:hover {
+  opacity: 1;
+}

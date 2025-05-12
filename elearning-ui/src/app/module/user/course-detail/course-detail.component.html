@@ -1,0 +1,136 @@
+<section>
+  <div class="container com-sp pad-bot-70 pg-inn">
+    <div class="row">
+      <div class="cor">
+        <div class="col-md-12">
+          <div class="cor-mid-img">
+            <img [src]="data.thumbnail" alt="" style="height: 300px; width: 850px; object-fit: contain;">
+          </div>
+          <div class="cor-con-mid">
+            <div class="cor-p1">
+              <h2>{{ data.name }}</h2>
+              <div class="share-btn">
+                <ul>
+                  <li>
+                    <a href="javascript:void(0)">
+                      <i class="fa fa-facebook fb1"></i> Share On Facebook</a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0)">
+                      <i class="fa fa-twitter tw1"></i> Share On Twitter</a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0)">
+                      <i class="fa fa-google-plus gp1"></i> Share On Google +</a>
+                  </li>
+                  @if (isExpired) {
+                    <li>
+                      <a class="wa1-expired disabled" href="javascript:void(0)">
+                        <i class="fa fa-clock-o wa1"></i> Expired
+                      </a>
+                    </li>
+                  } @else {
+                    @if (data.isJoined === 2) {
+                      <li>
+                        <a href="javascript:void(0)" class="wa1-gradient" (click)="enroll()">
+                          <i class="fa fa-plus-square wa1"></i> Enroll now</a>
+                      </li>
+                    } @else if (data.isJoined === 0) {
+                      <li>
+                        <p class="wa1-gradient px-3 border border-1 py-2 text-white">
+                          <i class="fa fa-plus-square wa1"></i> Wait for approval</p>
+                      </li>
+                    }
+                  }
+                </ul>
+              </div>
+            </div>
+            <div class="cor-p4">
+              <h3>Course Details:</h3>
+              <p>{{ data.description }}</p>
+            </div>
+            <div class="cor-p5">
+              <h3>Course Syllabus</h3>
+              <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#menu1">
+                  <img ngSrc="assets/images/icon/cor4.png" alt="" height="32" width="32"> <span>Syllabus</span></a>
+                </li>
+                @if (data.isJoined === 1) {
+                  <li>
+                    <a data-toggle="tab" href="#menu2">
+                      <img ngSrc="assets/images/icon/cor5.png"
+                           alt="" height="32" width="32">
+                      <span>Quiz</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a data-toggle="tab" href="#menu3">
+                      <img ngSrc="assets/images/icon/cor1.png" alt="" height="32"
+                           width="32"><span>Student</span></a>
+                  </li>
+                }
+              </ul>
+              <div class="tab-content text-dark">
+                <div id="menu1" class="tab-pane in active">
+                  <ul class="collapsible" data-collapsible="accordion">
+                    @for (l of data.lessons; track l) {
+                      <li class="p-4">
+                        <div class="collapsible-body cor-tim-tab border"
+                             style="display: block; padding-top: 20px; margin-top: 0; padding-bottom: 20px; margin-bottom: 0;">
+
+                          <h4>{{ l.title }}</h4>
+                          <p>{{ l.description }}</p>
+                          @if (data.isJoined === 1) {
+                            <ul>
+                              @for (m of l.media; track m) {
+                                <li class="bg-light py-2 cursor" (click)="openMedia(m)"
+                                    [ngClass]="{'pdf-icon': m.type?.includes('pdf'), 'image-icon': m.type?.includes('image')}">
+                                  {{ m.title }}
+                                </li>
+                              }
+                            </ul>
+                          }
+                        </div>
+                      </li>
+                    } @empty {
+                      <h4>No lesson found</h4>
+                    }
+                  </ul>
+                </div>
+                @if (data.isJoined === 1) {
+                  <div id="menu2" class="tab-pane">
+                    <h4>List Quiz</h4>
+                    <div class="cor-tim-tab border">
+                      <ul class="p-3">
+                        @for (qui of quizzes; track qui) {
+                          <li class="quiz-icon mt-2 d-flex justify-content-between">
+                            <span class="btn-link cursor" (click)="doQuiz(qui)">{{ qui.title }}</span>
+                            <span>{{ qui.numberOfQuestion }} questions</span>
+                          </li>
+                        } @empty {
+                          <li>No quiz found</li>
+                        }
+                      </ul>
+                    </div>
+                  </div>
+                  <div id="menu3" class="tab-pane">
+                    <h4>List students</h4>
+                    <div class="cor-tim-tab border">
+                      <ul>
+                        @for (stu of students; track stu) {
+                          <li class="student-icon mt-2">{{ stu }}</li>
+                        } @empty {
+                          <li>No student found</li>
+                        }
+                      </ul>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

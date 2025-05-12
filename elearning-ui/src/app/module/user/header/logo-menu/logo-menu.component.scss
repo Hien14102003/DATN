@@ -1,0 +1,19 @@
+.active {
+  color: #e66030;
+}
+
+
+.active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: 12px;
+  left: 0;
+  color: #e66030;
+  background-color: #e66030;
+  z-index: 1;
+  visibility: visible;
+  transform: scaleX(1);
+  transition: all .25s ease-out;
+}

@@ -1,0 +1,24 @@
+<div class="top-logo" data-spy="affix" data-offset-top="250">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="wed-logo">
+          <a href="javascript:void(0)"><img ngSrc="assets/images/logo.png" alt="" height="44" width="250" priority/>
+          </a>
+        </div>
+        <div class="main-menu">
+          <ul>
+            @for (m of menus; track m.url) {
+              <li>
+                <a href="javascript:void(0)" (click)="navigate(m)"
+                   [ngClass]="{'active': m.active}">{{ m.name }}</a>
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+      <div class="all-drop-down-menu">
+      </div>
+    </div>
+  </div>
+</div>

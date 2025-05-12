@@ -1,0 +1,31 @@
+<section>
+  <app-top-bar/>
+  <app-logo-menu/>
+  <div class="search-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="search-form">
+            <form>
+              <div class="sf-type">
+                <div class="sf-input">
+                  <input id="course" name="course" list="courses" [(ngModel)]="selectedCourse">
+                </div>
+                <div class="sf-list">
+                  <datalist id="courses">
+                    @for (c of data; track c) {
+                      <option value="{{ c.name }}"></option>
+                    }
+                  </datalist>
+                </div>
+              </div>
+              <div class="sf-submit">
+                <input type="button" value="Search Course" (click)="submit()">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+<h4>Login</h4>
+<p>Don't have an account? Create your account. It's take less then a minutes</p>
+<form class="s12">
+  <div>
+    <div class="input-field s12">
+      <input type="text" name="username" class="validate" [(ngModel)]="param.email">
+      <label>Email</label>
+    </div>
+  </div>
+  <div>
+    <div class="input-field s12">
+      <input type="password" name="password" class="validate" [(ngModel)]="param.password">
+      <label>Password</label>
+    </div>
+  </div>
+  <div>
+    <div class="input-field s4">
+      <input type="submit" value="Login" class="waves-effect waves-light log-in-btn" (click)="submit()">
+    </div>
+  </div>
+  <div>
+    <div class="input-field s12">
+      <a href="javascript:void(0)" (click)="openModal('forget')">Forgot password</a> |
+      <a href="javascript:void(0)" (click)="openModal('register')"> Create a new account</a>
+    </div>
+  </div>
+</form>

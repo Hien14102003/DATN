@@ -1,0 +1,12 @@
+.inactive, .pending {
+  background-color: #ffcc00 !important;
+  color: black !important;
+}
+
+.completed, .approved {
+  background-color: green !important;
+}
+
+.rejected {
+  background-color: red !important;
+}
