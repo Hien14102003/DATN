@@ -112,7 +112,9 @@ public class SyllabusService {
                                               m.type
                                        from lessons l
                                                 inner join media m on l.lesson_id = m.lesson_id
-                                       where l.course_id = :courseId;
+                                       where 1=1 
+                                       and l.course_id = :courseId
+                                       and l.status = 'active';
                                       """,
                               Map.of("courseId", courseId),
                               BeanPropertyRowMapper.newInstance(LessonDTO.class)
